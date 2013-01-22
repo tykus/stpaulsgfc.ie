@@ -28,7 +28,7 @@
 		              <li>{{ HTML::link('/', 'Home') }}</li>
 			          <li class="divider-vertical"></li>
 		               <li class="dropdown">
-		               	{{ HTML::link('location', 'About', array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown')) }}
+		               	{{ HTML::link('#', 'About', array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown')) }}
 					      
 					    <ul class="dropdown-menu">
 					      <li>{{ HTML::link('#', 'Committee') }}</li>
@@ -37,9 +37,17 @@
 					    </ul>
 					  </li>
 			          <li class="divider-vertical"></li>
-		              <li>{{ HTML::link('#', 'Gallery') }}</li>
+		              <li>{{ HTML::link('gallery', 'Gallery') }}</li>
 			          <li class="divider-vertical"></li>
-		              <li>{{ HTML::link('#', 'Matches') }}</li>
+		               <li class="dropdown">
+		               	{{ HTML::link('#', 'Matches', array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown')) }}
+					      
+					    <ul class="dropdown-menu">
+					      <li>{{ HTML::link('#', 'Fixtures') }}</li>
+					      <li>{{ HTML::link('#', 'Results') }}</li>
+					      <li>{{ HTML::link('#', 'Tables') }}</li>
+					    </ul>
+					  </li>
 		            </ul>
 		            <!-- The drop down menu -->
 			        <ul class="nav pull-right">
@@ -71,8 +79,7 @@
 			  </div>
 			</div>
 			
-			
-			<div class="page-header">
+			<div class="page-title">
 				<h1>{{ $page_title }}</h1>
 			</div>
 			

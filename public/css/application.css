@@ -2,7 +2,7 @@
  * 	@name: 		public/css/application.css
  *  @author:	Tykus
  *  @date:		2013-01-22
- * 
+ * 	@version: 	1
  */
 
 /* Import Google Web Fonts */
@@ -11,40 +11,52 @@
 /* 
  * Defined Application Styles
  */
-
-
-body {
+body
+{
 	background: #ffffff url('../img/bg_content.png') repeat;
 	font-family: 'Ubuntu', sans-serif;
 	padding-top: 40px;
 	padding-bottom: 40px;
 }
 
-.white {
+.white
+{
 	background: #ffffff url('../img/bg_content.png') repeat;	
 }
 
-.whitespace {
+.whitespace
+{
 	margin: 1% 0;
 }
 
-.post-title {
+.post-title
+{
 	color: #f00;
 }
 
-.time-ago {
+.time-ago
+{
 	font-style: italic;
 }
 
+.page-title > h1 
+{
+	color: #ffffff;
+	background: #b80000 url('../img/bg_content.png') repeat;	
+	height: 60px;
+	line-height: 60px;
+	margin-top: -30px;
+	margin-bottom: 30px;
+	padding-left: 5px;
+}
 
-/*
- * Footer styles
- * =============
- */
+/* Footer styles
+ * ============= */
 
 #footer 
 {
 	line-height: 120px;
+	background: url('../img/footer.png') repeat-x;
 }
 
 .footer-right
@@ -98,9 +110,6 @@ body {
 #footer {
     height: 120px;
 }
-#footer {
-    background-color: #111111;
-}
 
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
@@ -111,7 +120,6 @@ body {
       padding-right: 20px;
    }
 }
-
 
 
 /* Jumbotron
@@ -170,7 +178,7 @@ body {
 .masthead h1 {
   font-size: 120px;
   line-height: 1;
-  letter-spacing: -2px;
+  letter-spacing: -3px;
 }
 .masthead p {
   font-size: 40px;
