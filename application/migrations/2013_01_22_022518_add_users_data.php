@@ -13,8 +13,8 @@ class Add_Users_Data {
 		DB::table('users')->insert(array(
 			'name' => 'Brian O\'Sullivan',
 			'email' => 'brian@tykus.ie',
-			'created_at' => date('Y-m-s H:i:s'),
-			'updated_at' => date('Y-m-s H:i:s')
+			'created_at' => date('Y-m-d H:i:s'),
+			'updated_at' => date('Y-m-d H:i:s')
 		));
 	}
 

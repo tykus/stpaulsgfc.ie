@@ -16,8 +16,18 @@ class Add_Postss_Data {
 			'user_id' => 1,
 			'expires' => "2013-01-31 00:00:00",
 			'publish' => true,
-			'created_at' => date('Y-m-s H:i:s'),
-			'updated_at' => date('Y-m-s H:i:s')
+			'created_at' => date('Y-m-d m:i:s'),
+			'updated_at' => date('Y-m-d H:i:s')
+			
+		));
+		DB::table('posts')->insert(array(
+			'title' => 'Second post!',
+			'content' => 'This is a second post which has been seeded through a migration. Lorem ipsum dolar sit amet...',
+			'user_id' => 1,
+			'expires' => "2013-01-31 00:00:00",
+			'publish' => true,
+			'created_at' => date('Y-m-d H:i:s'),
+			'updated_at' => date('Y-m-d H:i:s')
 			
 		));
 	}

@@ -9,7 +9,7 @@
 	        
 	        return View::make('posts.index')
 				->with('page_title', 'User Posts')
-				->with('posts', Post::all());
+				->with('posts', Post::order_by('created_at', 'desc')->get());
 	        
 	    }
 	

@@ -32,13 +32,8 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home.index');
-});
-
-
 /* APPLICATION ROUTES */
+Route::get('/', 'posts@index');
 Route::get('/posts', 'posts@index');
 
 
