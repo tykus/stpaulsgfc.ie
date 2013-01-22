@@ -34,7 +34,9 @@
 
 /* APPLICATION ROUTES */
 Route::get('/', 'posts@index');
-Route::get('/posts', 'posts@index');
+Route::get('posts', 'posts@index');
+Route::get('location', 'pages@location');
+Route::get('contact', 'pages@contact');
 
 
 
