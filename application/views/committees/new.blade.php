@@ -5,10 +5,12 @@
 		
 		<!-- Display any errors -->
 		@if($errors->has())
-		<ul>
-			{{ $errors->first('name', '<li>:message</li>) }}
-			{{ $errors->first('role', '<li>:message</li>) }}			
-		</ul>
+		<div class="alert alert-error">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<h4>Error(s) preventing the form submission:</h4>
+		  	{{ $errors->first('name', '<p>:message</p>') }}
+			{{ $errors->first('role', '<p>:message</p>') }}
+		</div>
 		@endif
 		
 		{{ Form::open('committees/create', 'POST') }}

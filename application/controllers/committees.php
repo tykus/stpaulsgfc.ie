@@ -20,16 +20,27 @@
 		
 		public function post_create()
 		{
-			// Process the form
-			Committee::create(array(
-				'name' => Input::get('name'),
-				'role' => Input::get('role'),
-				'telephone' => Input::get('telephone'),
-				'email' => Input::get('email')
-			));
-			
-			return Redirect::to_route('committee')
-				->with('flash', 'The committee member was created successfully');
+			// Validate the form data against the rules in the model	
+			$validation = Committee::validate(Input::all());	
+				
+			if ($validation->fails())
+			{
+				return Redirect::to_route('new_committee')->with_errors($validation)->with_input();
+			} 
+			else
+			{ 
+				// Process the form
+				Committee::create(array(
+					'name' => Input::get('name'),
+					'role' => Input::get('role'),
+					'telephone' => Input::get('telephone'),
+					'email' => Input::get('email')
+				));
+				
+				return Redirect::to_route('committee')
+					->with('flash', 'The committee member was created successfully');
+			}
+		
 		}
 		
 		
