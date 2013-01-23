@@ -14,6 +14,8 @@ class Committee {
 			$table->increments('id');
 			$table->string('name');
 			$table->string('role');
+			$table->string('telephone');
+			$table->string('email');
 			$table->integer('user_id');
 			$table->timestamps();
 		});

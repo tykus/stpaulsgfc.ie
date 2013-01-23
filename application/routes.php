@@ -35,10 +35,14 @@
 /* APPLICATION ROUTES */
 Route::get('/', 'posts@index');
 Route::get('posts', 'posts@index');
-Route::get('location', 'pages@location');
-Route::get('contact', 'pages@contact');
+Route::get('location', array('as' => 'location', 'uses' => 'pages@location'));
+Route::get('contact', array('as' => 'contact', 'uses' => 'pages@contact'));
 Route::get('gallery', 'pages@gallery');
 
+// COMMITTEE PAGES
+Route::get('committee', array('as' => 'committee', 'uses' => 'committees@index'));
+Route::get('committee/new', array('as' => 'new_committee', 'uses' => 'committees@new'));
+Route::post('committees/create', array('uses' => 'committees@create'));
 
 
 /*

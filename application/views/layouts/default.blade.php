@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{{ $page_title }}</title>
+		<title>St. Paul's GFC :: {{ $page_title }}</title>
 		{{ Asset::container('bootstrapper')->styles() }}
 		{{ Asset::container('bootstrapper')->scripts() }}
 		{{ HTML::style('css/application.css') }}
@@ -31,7 +31,7 @@
 		               	{{ HTML::link('#', 'About', array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown')) }}
 					      
 					    <ul class="dropdown-menu">
-					      <li>{{ HTML::link('#', 'Committee') }}</li>
+					      <li>{{ HTML::link('committee', 'Committee') }}</li>
 					      <li>{{ HTML::link('location', 'Location') }}</li>
 					      <li>{{ HTML::link('contact', 'Contact') }}</li>
 					    </ul>
@@ -83,6 +83,15 @@
 				<h1>{{ $page_title }}</h1>
 			</div>
 			
+			<!-- Display any flash messages -->
+			@if (Session::has('flash'))
+			<div class="alert alert-success">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<p>{{ Session::get('flash') }}</p>
+			</div>
+			@endif
+			
+			<!-- Display the page content -->
 			<div class="row">
 				@yield('content')
 			</div>	
