@@ -26,7 +26,7 @@
 				{{ Form::text('email', Input::old('email')) }}
 			</p>
 			<p>
-				{{ Form::submit('Add committee member', array('class'=>'btn btn-primary')) }}
+				{{ Form::submit('Add Committee Member', array('class' => 'btn btn-primary')) }}
 			</p>
 			{{ Form::close() }}
 		</div>

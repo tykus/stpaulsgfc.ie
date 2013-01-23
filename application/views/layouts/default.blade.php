@@ -31,6 +31,7 @@
 		               	{{ HTML::link('#', 'About', array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown')) }}
 					      
 					    <ul class="dropdown-menu">
+					      <li>{{ HTML::link('history', 'History') }}</li>
 					      <li>{{ HTML::link('committee', 'Committee') }}</li>
 					      <li>{{ HTML::link('location', 'Location') }}</li>
 					      <li>{{ HTML::link('contact', 'Contact') }}</li>

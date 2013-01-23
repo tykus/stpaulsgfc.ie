@@ -4,6 +4,15 @@
 	{
 		public $restful = true;
 		
+		
+		public function get_history()
+		{
+			return View::make('pages.history')
+				->with('history', Page::find(1))
+				->with('page_title', 'History');
+		}
+		
+		
 	    public function get_location()
 	    {
 	        

@@ -1,7 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
-	<div class="span8">
+	<div class="span8 offset2">
 		<table class="table table-striped">
 		  <thead>	
 			<tr>
@@ -22,10 +22,5 @@
 			@endforeach
 		  </tbody>
 		</table>
-	</div>
-	<div class="span4">
-		<div class="well">
-			<h3>Other Information</h3>
-		</div>
 	</div>
 @endsection

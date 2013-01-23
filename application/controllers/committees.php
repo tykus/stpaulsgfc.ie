@@ -38,7 +38,7 @@
 				));
 				
 				return Redirect::to_route('committee')
-					->with('flash', 'The committee member was created successfully');
+					->with('flash', 'The committee member was edited successfully');
 			}
 		
 		}
@@ -48,7 +48,36 @@
 		{
 			return View::make('committees.edit')
 				->with('page_title', 'Edit Committee Member')
+				->with('members', Committee::all())
 				->with('member', Committee::find($id));
+		}
+
+		public function put_update()
+		{
+			$id = Input::get('id');
+			$validation = Committee::validate(Input::all());
+			
+			if ($validation->fails())
+			{
+				return Redirect::to_route('edit_committee', $id)->with_errors($validation);
+			}
+			else 
+			{
+				Committee::update($id, array(
+					'name' => Input::get('name'),
+					'role' => Input::get('role'),
+					'telephone' => Input::get('telephone'),
+					'email' => Input::get('email')				
+				));	
+				
+				return Redirect::to_route('committee')->with('flash', 'Committee Member updated successfully');
+			}
+		}
+		
+		public function delete_destroy()
+		{
+			Committee::find(Input::get('id'))->delete();
+			return Redirect::to_route('committee')->with('flash', 'Committee Member was deleted successfully');
 		}
 		
 		

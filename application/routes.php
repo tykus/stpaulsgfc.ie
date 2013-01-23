@@ -35,15 +35,24 @@
 /* APPLICATION ROUTES */
 Route::get('/', 'posts@index');
 Route::get('posts', 'posts@index');
+
+/* PAGES
+ * ===== */
 Route::get('location', array('as' => 'location', 'uses' => 'pages@location'));
 Route::get('contact', array('as' => 'contact', 'uses' => 'pages@contact'));
 Route::get('gallery', 'pages@gallery');
+Route::get('history', 'pages@history');
 
-// COMMITTEE PAGES
+/* COMMITTEE PAGES
+ * =============== */
 Route::get('committee', array('as' => 'committee', 'uses' => 'committees@index'));
-Route::get('committee/new', array('as' => 'new_committee', 'uses' => 'committees@new'));
+Route::get('committees/new', array('as' => 'new_committee', 'uses' => 'committees@new'));
 Route::post('committees/create', array('uses' => 'committees@create'));
 Route::get('committees/(:any)/edit', array('as' => 'edit_committee', 'uses' => 'committees@edit'));
+Route::put('committees/update', array('uses' => 'committees@update'));
+Route::delete('committees/delete', array('uses' => 'committees@destroy'));
+
+
 
 /*
 |--------------------------------------------------------------------------
