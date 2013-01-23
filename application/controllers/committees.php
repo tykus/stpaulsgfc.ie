@@ -44,4 +44,12 @@
 		}
 		
 		
+		public function get_edit($id)
+		{
+			return View::make('committees.edit')
+				->with('page_title', 'Edit Committee Member')
+				->with('member', Committee::find($id));
+		}
+		
+		
 	}
