@@ -81,7 +81,7 @@
 			</div>
 			
 			<div class="page-title">
-				<h1>{{ $page_title }}</h1>
+				<h1>{{ HTML::entities($page_title) }}</h1>
 			</div>
 			
 			<!-- Display any flash messages -->

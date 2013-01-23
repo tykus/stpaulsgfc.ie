@@ -9,6 +9,7 @@
 		<div class="well">
 			<!-- Display the form -->
 			{{ Form::open('committees/create', 'POST') }}
+			{{ Form::token() }}
 			<p>
 				{{ Form::label('name', 'Name') }}
 				{{ Form::text('name', Input::old('name')) }}

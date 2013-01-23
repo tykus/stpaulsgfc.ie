@@ -14,10 +14,10 @@
 		  <tbody>
 			@foreach($members as $member)
 				<tr>
-					<td>{{ $member->name }}</td>
-					<td>{{ $member->role }}</td>
-					<td>{{ $member->telephone }}</td>
-					<td>{{ $member->email }}</td>
+					<td>{{ HTML::entities($member->name) }}</td>
+					<td>{{ HTML::entities($member->role) }}</td>
+					<td>{{ HTML::entities($member->telephone) }}</td>
+					<td>{{ HTML::entities($member->email) }}</td>
 				</tr>
 			@endforeach
 		  </tbody>

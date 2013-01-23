@@ -3,8 +3,8 @@
 @section('content')
 
 	<div class="span12">
-		<h3>{{ $history->heading }}</h3>
-		{{ $history->content }}
+		<h3>{{ HTML::entities($history->heading) }}</h3>
+		{{ HTML::entities($history->content) }}
 		
 	</div>
 
