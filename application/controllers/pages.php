@@ -12,6 +12,13 @@
 				->with('page_title', 'History');
 		}
 		
+		public function get_home()
+		{
+		    return View::make('pages.home')
+				->with('page_title', 'Welcome')
+		        ->with('posts', Post::paged_posts(3));
+		}
+		
 		
 	    public function get_location()
 	    {

@@ -38,7 +38,7 @@
 				));
 				
 				return Redirect::to_route('committee')
-					->with('flash', 'The committee member was edited successfully');
+					->with('flash', 'The committee member was created successfully');
 			}
 		
 		}

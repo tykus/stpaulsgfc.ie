@@ -30,4 +30,16 @@ class MyHelpers {
 		return "$difference $periods[$j] ago ";
 	}
 	
+	//truncate text
+	public static function truncate($text) {
+		//specify number fo characters to shorten by
+		$chars = 100;
+		$text = $text." ";
+		$text = substr($text,0,$chars);
+		$text = substr($text,0,strrpos($text,' '));
+		$text = $text."...";
+		return $text;
+	}
+	
+	
 }

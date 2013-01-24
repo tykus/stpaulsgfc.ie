@@ -15,8 +15,8 @@ body
 {
 	background: #ffffff url('../img/bg_content.png') repeat;
 	font-family: 'Ubuntu', sans-serif;
+	font-size: 1em;
 	padding-top: 40px;
-	padding-bottom: 40px;
 }
 
 .white
@@ -26,7 +26,7 @@ body
 
 .whitespace
 {
-	margin: 1% 0;
+	margin: 0;
 }
 
 .post-title
@@ -37,6 +37,7 @@ body
 .time-ago
 {
 	font-style: italic;
+	font-size: 0.8em;
 }
 
 .page-title > h1 
@@ -147,16 +148,17 @@ body {
 	position: relative;
 	bottom: 0;
 	right: 0;
-  font-size: 80px;
-  font-weight: bold;
-  letter-spacing: -1px;
-  line-height: 1;
+	font-size: 80px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	line-height: 1;
 }
-.jumbotron p {
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 1.25;
-  margin-bottom: 30px;
+.jumbotron p 
+{
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 1.25;
+	margin-bottom: 30px;
 }
 
 /* Link styles (used on .masthead-links as well) */

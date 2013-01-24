@@ -1,50 +1,32 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Simply tell Laravel the HTTP verbs and URIs it should respond to. It is a
-| breeze to setup your application using Laravel's RESTful routing and it
-| is perfectly suited for building large applications and simple APIs.
-|
-| Let's respond to a simple GET request to http://example.com/hello:
-|
-|		Route::get('hello', function()
-|		{
-|			return 'Hello World!';
-|		});
-|
-| You can even respond to more than one URI:
-|
-|		Route::post(array('hello', 'world'), function()
-|		{
-|			return 'Hello World!';
-|		});
-|
-| It's easy to allow URI wildcards using (:num) or (:any):
-|
-|		Route::put('hello/(:any)', function($name)
-|		{
-|			return "Welcome, $name.";
-|		});
-|
-*/
-
 /* ================================================================================================
- *   APPLICATION ROUTES
+ *   APPLICATION ROOT
  * ================================================================================================ */
-Route::get('/', 'posts@index');
-Route::get('posts', 'posts@index');
+Route::get('/', 'pages@home');
+
 
 /* ================================================================================================
  *   PAGES
  * ================================================================================================ */
+Route::get('home', array('as' => 'home', 'uses' => 'pages@home'));
+Route::get('history', array('as' => 'history', 'uses' =>  'pages@history'));
 Route::get('location', array('as' => 'location', 'uses' => 'pages@location'));
 Route::get('contact', array('as' => 'contact', 'uses' => 'pages@contact'));
 Route::get('gallery', 'pages@gallery');
-Route::get('history', 'pages@history');
+
+
+/* ================================================================================================
+ *   POSTS
+ * ================================================================================================ */
+Route::get('posts', array('as'=>'posts', 'uses'=>'posts@index'));
+Route::get('posts/(:any)', array('as'=>'show_post', 'uses'=>'posts@show'));
+Route::get('posts/new', array('as' => 'new_post', 'uses' => 'posts@new'));
+Route::post('posts/create', array('before' => 'csrf', 'uses' => 'posts@create'));
+Route::get('posts/(:any)/edit', array('as' => 'edit_post', 'uses' => 'posts@edit'));
+Route::put('posts/update', array('before' => 'csrf', 'uses' => 'posts@update'));
+Route::delete('posts/delete', array('before' => 'csrf', 'uses' => 'posts@destroy'));
+
 
 /* ================================================================================================
  *   COMMITTEE PAGES
