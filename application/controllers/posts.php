@@ -100,9 +100,19 @@
 				return Redirect::to_route('posts')
 					->with('flash', 'Your post created successfully.');
 			}
+		}
+		
+		/* ====================================================
+		 * DELETE ACTION
+		 * ==================================================== */		
+		public function delete_destroy()
+		{
+			Post::find(Input::get('id'))->delete();
+			return Redirect::to_route('posts')->with('flash', 'Post was deleted successfully');
+		}
  			
  			
  			
-	    }		
+	    		
 
 	}

@@ -3,8 +3,11 @@
 	<head>
 		<title>St. Paul's GFC :: {{ $page_title }}</title>
 		{{ Asset::container('bootstrapper')->styles() }}
-		{{ Asset::container('bootstrapper')->scripts() }}
 		{{ HTML::style('css/application.css') }}
+		{{ HTML::style('http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css') }}
+		{{ Asset::container('bootstrapper')->scripts() }}
+		{{ HTML::script('http://code.jquery.com/ui/1.10.0/jquery-ui.js') }}
+		{{ HTML::script('js/application.js') }}
 	</head>
 	<body>
 		<div id="wrap">
@@ -109,13 +112,13 @@
       <div class="container">
         <div class="row">
         	<div class="span4 footer-left">
-        		{{ HTML::image('img/crests/stpauls.png') }}	
+        		{{ HTML::image('img/crests/stpauls.png', 'St. Paul\'s GFC') }}	
         	</div>
         	<div class="span4 footer-center">
         		<p class="muted">&copy; {{ date('Y') }} St. Paul's GFC</p>	
         	</div>
         	<div class="span4 footer-right">
-        		{{ HTML::image('img/gaa.png') }}	
+        		{{ HTML::image('img/gaa.png', 'GAA') }}	
         	</div>
         	
       </div>

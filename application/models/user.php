@@ -6,4 +6,5 @@
 	    {
 	        return $this->has_many('Post');
 	    }
+
 	}

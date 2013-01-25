@@ -17,7 +17,7 @@
 					<td>{{ HTML::entities($member->name) }}</td>
 					<td>{{ HTML::entities($member->role) }}</td>
 					<td>{{ HTML::entities($member->telephone) }}</td>
-					<td>{{ HTML::entities($member->email) }}</td>
+					<td>{{ HTML::mailto($member->email, $member->email) }}</td>
 				</tr>
 			@endforeach
 		  </tbody>

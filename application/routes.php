@@ -39,6 +39,17 @@ Route::put('committees/update', array('before' => 'csrf', 'uses' => 'committees@
 Route::delete('committees/delete', array('before' => 'csrf', 'uses' => 'committees@destroy'));
 
 
+/* ================================================================================================
+ *   TEAMS PAGES
+ * ================================================================================================ */
+Route::get('teams', array('as'=>'teams', 'uses'=>'teams@index'));
+Route::get('teams/(:any)', array('as'=>'show_team', 'uses'=>'teams@show'));
+Route::get('teams/new', array('as' => 'new_team', 'uses' => 'teams@new'));
+Route::post('teams/create', array('before' => 'csrf', 'uses' => 'teams@create'));
+Route::get('teams/(:any)/edit', array('as' => 'edit_team', 'uses' => 'teams@edit'));
+Route::put('teams/update', array('before' => 'csrf', 'uses' => 'teams@update'));
+Route::delete('teams/delete', array('before' => 'csrf', 'uses' => 'teams@destroy'));
+
 
 /*
 |--------------------------------------------------------------------------

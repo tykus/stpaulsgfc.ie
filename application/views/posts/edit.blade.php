@@ -28,6 +28,7 @@
 			</p>
 			<p>
 				{{ Form::hidden('user_id', 1) }}
+				{{ Form::hidden('id', $post->id) }}
 				{{ Form::submit('Edit Post', array('class' => 'btn btn-primary')) }}
 			</p>
 			{{ Form::close() }}

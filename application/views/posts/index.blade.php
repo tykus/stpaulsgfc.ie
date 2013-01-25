@@ -2,6 +2,7 @@
 
 @section('content')
 	<div class="span12">
+		{{ HTML::link('posts/new', 'New Post', array('class' => 'btn btn-large btn-primary pull-right')) }}
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -31,7 +32,7 @@
 						{{ Form::open('posts/delete', 'DELETE', array('style'=>'display:inline;')) }}
 						{{ Form::hidden('id', $post->id) }}
 						{{ Form::token() }} 
-						{{ Form::submit('Delete', array('class'=>'btn btn-danger')) }}
+						{{ Form::submit('Delete', array('class'=>'btn btn-danger', 'data-confirm' => 'Are you sure?')) }}
 						{{ Form::close() }}
 					</td>
 				</tr>
