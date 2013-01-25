@@ -1,7 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
-	<div class="span12">
+	<div class="span7 offset2">
 	
 		<!-- Display any errors from partial -->
 		{{ render('common.teams_errors') }}

@@ -30,7 +30,10 @@ class MyHelpers {
 		return "$difference $periods[$j] ago ";
 	}
 	
-	//truncate text
+	/* truncate(text)
+	 * ==============
+	 * Truncates text to specified number of characters
+	 */
 	public static function truncate($text) {
 		//specify number fo characters to shorten by
 		$chars = 200;
@@ -40,6 +43,5 @@ class MyHelpers {
 		$text = $text."...";
 		return $text;
 	}
-	
 	
 }

@@ -16,7 +16,7 @@ class Create_Teams_Table {
 			$table->string('venue')->nullable();
 			$table->string('latitude')->nullable();
 			$table->string('longitude')->nullable();
-			$table->string('crest')->nullable();
+			$table->string('crest')->default('black.png')->nullable();
 			$table->string('website')->nullable();
 			$table->timestamps();
 		});
