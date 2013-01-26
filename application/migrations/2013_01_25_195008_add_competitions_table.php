@@ -14,6 +14,7 @@ class Add_Competitions_Table {
 			$table->increments('id');
 			$table->string('name');
 			$table->integer('year');
+			$table->timestamps();
 		});
 	}
 

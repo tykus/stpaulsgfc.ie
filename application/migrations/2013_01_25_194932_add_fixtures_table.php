@@ -21,6 +21,7 @@ class Add_Fixtures_Table {
 			$table->integer('our_points')->nullable();
 			$table->integer('opp_goals')->nullable();
 			$table->integer('opp_points')->nullable();
+			$table->timestamps();
 		});
 	}
 
@@ -32,7 +33,7 @@ class Add_Fixtures_Table {
 	public function down()
 	{
 		// Drop the fixtures table
-		Schema:drop('fixtures');
+		Schema::drop('fixtures');
 	}
 
 }
