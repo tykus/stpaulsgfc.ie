@@ -51,6 +51,34 @@ Route::put('teams/update', array('before' => 'csrf', 'uses' => 'teams@update'));
 Route::delete('teams/delete', array('before' => 'csrf', 'uses' => 'teams@destroy'));
 
 
+/* ================================================================================================
+ *   COMPETITIONS PAGES
+ * ================================================================================================ */
+Route::get('competitions', array('as'=>'competitions', 'uses'=>'competitions@index'));
+Route::get('competitions/(:any)', array('as'=>'show_competition', 'uses'=>'competitions@show'));
+Route::get('competitions/new', array('as' => 'new_competition', 'uses' => 'competitions@new'));
+Route::post('competitions/create', array('before' => 'csrf', 'uses' => 'competitions@create'));
+Route::get('competitions/(:any)/edit', array('as' => 'edit_competition', 'uses' => 'competitions@edit'));
+Route::put('competitions/update', array('before' => 'csrf', 'uses' => 'competitions@update'));
+Route::delete('competitions/delete', array('before' => 'csrf', 'uses' => 'competitions@destroy'));
+
+
+/* ================================================================================================
+ *   FIXTURES PAGES
+ * ================================================================================================ */
+Route::get('fixtures', array('as'=>'fixtures', 'uses'=>'fixtures@index'));
+Route::get('fixtures/(:any)', array('as'=>'show_fixture', 'uses'=>'fixtures@show'));
+Route::get('fixtures/new', array('as' => 'new_fixture', 'uses' => 'fixtures@new'));
+Route::post('fixtures/create', array('before' => 'csrf', 'uses' => 'fixtures@create'));
+Route::get('fixtures/(:any)/edit', array('as' => 'edit_fixture', 'uses' => 'fixtures@edit'));
+Route::put('fixtures/update', array('before' => 'csrf', 'uses' => 'fixtures@update'));
+Route::delete('fixtures/delete', array('before' => 'csrf', 'uses' => 'fixtures@destroy'));
+
+
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
@@ -124,3 +152,4 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
 });
+
