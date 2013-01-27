@@ -7,19 +7,39 @@ class Fixture extends Eloquent {
         	return $this->belongs_to('Competition');
     	}
 
-
+		
 	    public function team()
     	{
         	return $this->belongs_to('Team');
     	}
 		
 		
-	/*
-	 * get_result()
-	 * ============
-	 * Determines the result of a fixture by calculating the total score for team1 and team2 
-	 * and returns an array of strings for each.
-	 */
+		
+						
+		// Validation rules
+		// ---------------- 
+		public static $rules = array(
+			//'name' => 'required|min:2|unique:teams,name'
+			'team_id' => 'required',
+			'competition_id' => 'required'
+		);
+		
+		/* validate($data))
+		 * ================
+		 * Validate the data passed in against the rules 
+		 */
+		public static function validate($data)
+		{
+			return Validator::make($data, static::$rules);
+		}
+		
+		
+		
+		/* get_result()
+		 * ============
+		 * Determines the result of a fixture by calculating the total score for team1 and team2 
+		 * and returns an array of strings for each.
+		 */
 		public function get_result()
 		{
 			// Get the scores for the current fixture instance

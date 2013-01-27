@@ -3,7 +3,7 @@
 @section('content')
 	<div class="span5">
 		<div class="well">
-			{{ Form::open('competitions/create', 'PUT') }}
+			{{ Form::open('competitions/update', 'PUT') }}
 			{{ Form::token() }}
 		
 			<p>

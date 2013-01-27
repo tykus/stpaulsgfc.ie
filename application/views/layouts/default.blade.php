@@ -47,8 +47,8 @@
 		               	{{ HTML::link('#', 'Matches', array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown')) }}
 					      
 					    <ul class="dropdown-menu">
-					      <li>{{ HTML::link('#', 'Fixtures') }}</li>
-					      <li>{{ HTML::link('#', 'Results') }}</li>
+					      <li>{{ HTML::link_to_route('fixtures', 'Fixtures') }}</li>
+					      <li>{{ HTML::link_to_route('results', 'Results') }}</li>
 					      <li>{{ HTML::link('#', 'Tables') }}</li>
 					    </ul>
 					  </li>

@@ -13,9 +13,6 @@ class Create_Teams_Table {
 		Schema::create('teams', function($table){
 			$table->increments('id');
 			$table->string('name');
-			$table->string('venue')->nullable();
-			$table->string('latitude')->nullable();
-			$table->string('longitude')->nullable();
 			$table->string('crest')->default('black.png')->nullable();
 			$table->string('website')->nullable();
 			$table->timestamps();

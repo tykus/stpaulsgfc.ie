@@ -17,7 +17,7 @@
 		</div>
 	</div>
 	<div class="span3">
-		<div class="well">
+		<div class="well panel">
 			<h3>Next Fixture</h3>
 			{{ HTML::image('img/crests/ballivor.png', 'Ballivor', array('class' => 'img pull-left')) }}
 			<p>
@@ -28,7 +28,7 @@
 		</div>
 	</div>
 	<div class="span3">
-		<div class="well">
+		<div class="well panel">
 				<h3>Last Result</h3>
 				{{ HTML::image('img/crests/dunshaughlin.png', 'Dunshaughlin', array('class' => 'img pull-left')) }}
 				<p>

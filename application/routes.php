@@ -73,6 +73,7 @@ Route::post('fixtures/create', array('before' => 'csrf', 'uses' => 'fixtures@cre
 Route::get('fixtures/(:any)/edit', array('as' => 'edit_fixture', 'uses' => 'fixtures@edit'));
 Route::put('fixtures/update', array('before' => 'csrf', 'uses' => 'fixtures@update'));
 Route::delete('fixtures/delete', array('before' => 'csrf', 'uses' => 'fixtures@destroy'));
+Route::get('results', array('as'=>'results', 'uses' => 'fixtures@results'));
 
 
 
@@ -153,3 +154,7 @@ Route::filter('auth', function()
 	if (Auth::guest()) return Redirect::to('login');
 });
 
+
+
+// Route for Fixtures_Controller
+Route::controller('fixtures');

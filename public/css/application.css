@@ -24,6 +24,11 @@ body
 	background: #ffffff url('../img/bg_content.png') repeat;	
 }
 
+.panel
+{
+	height: 150px;
+}
+
 .whitespace
 {
 	margin: 0;

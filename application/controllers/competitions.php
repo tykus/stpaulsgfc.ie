@@ -1,4 +1,4 @@
-<?php
+4<?php
 
 class Competitions_Controller extends Base_Controller {
 
@@ -99,11 +99,11 @@ class Competitions_Controller extends Base_Controller {
     public function post_create()
     {
 		// Validate the form data against the rules in the model	
-		$validation = Team::validate(Input::all());	
+		$validation = Competition::validate(Input::all());	
 			
 		if ($validation->fails())
 		{
-			return Redirect::to_route('new_team')->with_errors($validation)->with_input();
+			return Redirect::to_route('new_competition')->with_errors($validation)->with_input();
 		} 
 		else
 		{ 
