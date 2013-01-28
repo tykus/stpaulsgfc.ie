@@ -6,6 +6,11 @@ class Fixture extends Eloquent {
     	{
         	return $this->belongs_to('Competition');
     	}
+		
+	    public function venue()
+    	{
+        	return $this->belongs_to('Venue');
+    	}
 
 		
 	    public function team()
@@ -70,6 +75,17 @@ class Fixture extends Eloquent {
 				'opp_score' => $opp_score_str
 			);
 			
+		}
+		
+		public static function next()
+		{
+			return Fixture::where('datetime', '>=', date('Y-m-d'))->order_by('datetime')->first();
+		}
+		
+		
+		public static function prev()
+		{
+			return Fixture::where('datetime', '<=', date('Y-m-d'))->order_by('datetime', 'desc')->first();
 		}
 
 

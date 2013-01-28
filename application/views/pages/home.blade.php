@@ -19,23 +19,33 @@
 	<div class="span3">
 		<div class="well panel">
 			<h3>Next Fixture</h3>
-			{{ HTML::image('img/crests/ballivor.png', 'Ballivor', array('class' => 'img pull-left')) }}
-			<p>
-				Ballivor vs. St. Paul's<br />
-				AFL Division 4<br />
-				12.02.2013
-			</p>			
+			@if (isset($next_fixture))
+				{{ HTML::image('img/crests/'. $next_fixture->team->crest, $next_fixture->team->name, array('class' => 'img pull-left')) }}
+				<p>
+					{{ $next_fixture->team->name }}<br />
+					St. Paul's<br />
+					{{ $next_fixture->competition->name }}<br />
+					{{ MyHelpers::irish_date($next_fixture->datetime) }}
+				</p>
+			@else
+				<p>
+					<i>no fixtures upcoming</i>
+				</p>
+			@endif			
 		</div>
 	</div>
 	<div class="span3">
 		<div class="well panel">
-				<h3>Last Result</h3>
-				{{ HTML::image('img/crests/dunshaughlin.png', 'Dunshaughlin', array('class' => 'img pull-left')) }}
+			<h3>Last Result</h3>
+			@if (isset($prev_fixture))
+				{{ HTML::image('img/crests/'. $prev_fixture->team->crest, $prev_fixture->team->name, array('class' => 'img pull-left')) }}
 				<p>
-					Dunshaughlin vs. St. Paul's<br />
-					AFL Division 4<br />
-					12.01.2013
-				</p>		
+					{{ $prev_fixture->team->name }} <span class="pull-right">{{ $prev_fixture->result['opp_score'] }}</span><br />
+					St. Paul's <span class="pull-right">{{ $prev_fixture->result['our_score'] }}</span><br />
+					{{ $prev_fixture->competition->name }}<br />
+					{{ MyHelpers::irish_date($prev_fixture->datetime) }}
+				</p>	
+			@endif
 		</div>
 	</div>
 	<div class="span6">

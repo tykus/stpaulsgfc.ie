@@ -12,8 +12,8 @@ class Create_Userss_Table {
 		// Create the users table
 		Schema::create('users', function($table){
 			$table->increments('id');
-			$table->string('name');
-			$table->string('email');
+			$table->string('username');
+			$table->string('password');
 			$table->timestamps();
 		});
 	}

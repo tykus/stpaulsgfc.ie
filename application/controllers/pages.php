@@ -16,6 +16,8 @@
 		{
 		    return View::make('pages.home')
 				->with('page_title', 'Welcome')
+				->with('next_fixture', Fixture::next())
+				->with('prev_fixture', Fixture::prev())
 		        ->with('posts', Post::paged_posts(3));
 		}
 		

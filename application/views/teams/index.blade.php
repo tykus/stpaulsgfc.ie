@@ -26,13 +26,21 @@
 							{{ $team->name }}
 						@endif
 					</td>
-					<td>{{ $team->venue }}</td>
+					<td>@foreach($team->venues as $venue)
+							@if (isset ($venue->name)) 
+								{{ $venue->name }}, 
+							@endif
+							{{ $venue->address }}
+						@endforeach
+					</td>
 					<td>
-						@if ($team->latitude > 0)
-							{{ HTML::image('http://maps.googleapis.com/maps/api/staticmap?center=' . $team->latitude . ',' . $team->longitude . '&zoom=11&size=100x100&sensor=false') }}
-							<br />
-							<small>{{ HTML::link('https://maps.google.ie/maps?q=' . $team->latitude . ',' . $team->longitude . '&hl=en&sll=' . $team->latitude . ',' . $team->longitude . '&sspn=1.417561,4.22699&t=m&z=14', 'Google Maps', array('target'=>'blank')) }}</small> 
-						@endif
+						@foreach($team->venues as $venue)
+							@if (isset($venue->latitude))
+								{{ HTML::image('http://maps.googleapis.com/maps/api/staticmap?center=' . $venue->latitude . ',' . $venue->longitude . '&zoom=11&size=100x100&sensor=false') }}
+								<br />
+								<small>{{ HTML::link('https://maps.google.ie/maps?q=' . $venue->latitude . ',' . $venue->longitude . '&hl=en&sll=' . $venue->latitude . ',' . $venue->longitude . '&sspn=1.417561,4.22699&t=m&z=14', 'Google Maps', array('target'=>'blank')) }}</small>
+							@endif
+						@endforeach
 					</td>
 					<td>{{ $team->created_at }}</td>
 					<td>{{ $team->updated_at }}</td>

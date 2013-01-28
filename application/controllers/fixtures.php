@@ -36,12 +36,16 @@ class Fixtures_Controller extends Base_Controller {
 	 * ==================================================== */	
 	public function get_edit($id)
 	{
-		// Put the teams into an array for the select control on the form	
-		$teams = Team::order_by('name')->get();
+		// Options for the select controls
+		$competitions = array('' => 'Choose a competition') + Competition::lists('name', 'id');							
+		$venues = array('' => 'Choose a venue') + Venue::lists('address', 'id');						
+		$opponents = array('' => 'Choose a opponent') + Team::lists('name', 'id');
 		
 		return View::make('fixtures.edit')
 			->with('page_title', 'Edit Fixture')
-			->with('teams', $teams)
+			->with('venues', $venues)
+			->with('opponents', $opponents)
+			->with('competitions', $competitions)
 			->with('fixture', Fixture::find($id));
 	}
 
@@ -61,8 +65,10 @@ class Fixtures_Controller extends Base_Controller {
 		else 
 		{
 			Fixture::update($id, array(
-				'name' => Input::get('name'),
-				'year' => Input::get('year'),
+				'competition_id' => Input::get('competition_id'),
+				'team_id' => Input::get('team_id'),
+				'venue_id' => Input::get('venue_id'),
+				'datetime' => Input::get('datetime'),
 			));
 			
 			return Redirect::to_route('fixtures')->with('flash', 'Fixture updated successfully');
@@ -76,9 +82,14 @@ class Fixtures_Controller extends Base_Controller {
 	 public function get_new()
 	 {
 		$competitions = array('' => 'Choose a competition') + Competition::lists('name', 'id');							
+		$venues = array('' => 'Choose a venue') + Venue::lists('address', 'id');						
+		$opponents = array('' => 'Choose a opponent') + Team::lists('name', 'id');
+		
 		
 	 	return View::make('fixtures.new')
 			->with('page_title', 'New Fixture')
+			->with('venues', $venues)
+			->with('opponents', $opponents)
 			->with('competitions', $competitions);
 	 }
 
@@ -99,13 +110,27 @@ class Fixtures_Controller extends Base_Controller {
 		{ 
 			// Process the form
 			Fixture::create(array(
-				'name' => Input::get('name'),
-				'year' => Input::get('year'),
+				'competition_id' => Input::get('competition_id'),
+				'team_id' => Input::get('team_id'),
+				'venue_id' => Input::get('venue_id'),
+				'datetime' => Input::get('datetime'),
 			));
 			
-			return Redirect::to_route('new_fixture')
+			return Redirect::to_route('fixtures')
 				->with('flash', 'New fixture created successfully.');
 		}	 
 	 
+	 }
+
+
+
+
+	/* ====================================================
+	 * DELETE ACTION
+	 * ==================================================== */	
+	 public function delete_destroy() 
+	 {
+			Fixture::find(Input::get('id'))->delete();
+			return Redirect::to_route('fixtures')->with('flash', 'Fixture was deleted successfully');
 	 }
 }

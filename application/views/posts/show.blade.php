@@ -4,21 +4,20 @@
 <div class="span12">
 	<div class="page-header">
 		<h3>{{ $post->title }}</h3>
+		<p><i>{{ date("d.m.Y", strtotime($post->updated_at)) }} by {{ $post->user->name }}</i></p>
 	</div>	
-	<div class="span6">
+	<div class="row">
+		<div class="span10 offset1">
+				
+			<p>{{ nl2br($post->content) }}</p>
+
+		</div>
+	</div>	
+	<hr />
+	<div class="row">
+		<div class="fb-comments span10 offset1" data-href="http://www.stpaulsgfc.ie" data-width="970" data-num-posts="10">
 			
-		<p>{{ $post->content }}</p>
-		<hr />
-		<p><b>Expires:</b> {{ date("d.m.Y", strtotime($post->expires)) }}</p>
-		<p><b>Created:</b> {{ date("d.m.Y", strtotime($post->created_at)) }} by {{ $post->user->name }}</p>
-		<p><b>Updated:</b> {{ date("d.m.Y", strtotime($post->updated_at)) }} by {{ $post->user->name }}</p>
-		<p>
-			
-		</p>
-	</div>
-	
-	<div class="fb-comments span5" data-href="http://www.stpaulsgfc.ie" data-width="500" data-num-posts="10">
-		
+		</div>
 	</div>
 </div>
 @endsection

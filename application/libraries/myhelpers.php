@@ -52,7 +52,7 @@ class MyHelpers {
 	 public static function irish_date($date, $format='short')
 	 {
 	 	if ($format == 'long')
-		{
+		{	
 	 		return date("d/m/Y @ g:i a", strtotime(e($date)));
 	 	} else {
 	 		return date("d/m/Y", strtotime(e($date)));
