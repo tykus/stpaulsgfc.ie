@@ -19,6 +19,20 @@
 
 
 		/* ====================================================
+		 * LIST ACTION -- admin
+		 * ==================================================== */
+		public function get_list()
+		{
+			return View::make('committees.list')
+				->with('page_title', 'Committee Members')
+				->with('members', Committee::all());
+		}
+
+
+
+
+
+		/* ====================================================
 		 * NEW ACTION
 		 * ==================================================== */	
 		public function get_new()
@@ -51,7 +65,7 @@
 					'email' => Input::get('email')
 				));
 				
-				return Redirect::to_route('committee')
+				return Redirect::to_route('committee_list')
 					->with('flash', 'The committee member was created successfully');
 			}
 		
@@ -93,7 +107,7 @@
 					'email' => Input::get('email')				
 				));	
 				
-				return Redirect::to_route('committee')->with('flash', 'Committee Member updated successfully');
+				return Redirect::to_route('committee_list')->with('flash', 'Committee Member updated successfully');
 			}
 		}
 
@@ -104,8 +118,7 @@
 		public function delete_destroy()
 		{
 			Committee::find(Input::get('id'))->delete();
-			return Redirect::to_route('committee')->with('flash', 'Committee Member was deleted successfully');
+			return Redirect::to_route('committee_list')->with('flash', 'Committee Member was deleted successfully');
 		}
-		
 		
 	}

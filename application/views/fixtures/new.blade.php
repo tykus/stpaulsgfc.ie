@@ -1,6 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
+<div class="row">
 	<div class="span 6 offset3">
 		
 		{{ Form::open('fixtures/create', 'POST') }}
@@ -32,4 +33,5 @@
 		</p>
 		{{ Form::close() }}
 	</div>
+</div>
 @endsection

@@ -1,6 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
+<div class="row">
 	<div class="span12">
 		{{ HTML::link('fixtures/new', 'New Fixture', array('class' => 'btn btn-large btn-primary pull-right')) }}
 		<table class="table table-striped">
@@ -40,4 +41,5 @@
 			</tbody>
 		</table>
 	</div>
+</div>
 @endsection

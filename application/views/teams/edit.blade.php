@@ -1,6 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
+<div class="row">
 	<div class="span7 offset2">
 	
 		<!-- Display any errors from partial -->
@@ -15,20 +16,8 @@
 				{{ Form::text_span6('name', $team->name) }}
 			</p>
 			<p>
-				{{ Form::label('venue', 'Venue') }}
-				{{ Form::text_span6('venue', $team->venue) }}
-			</p>
-			<p>
 				{{ Form::label('website', 'Website') }}
 				{{ Form::text_span6('website', $team->website) }}
-			</p>
-			<p>
-				{{ Form::label('latitude', 'Latitude') }}
-				{{ Form::text_span6('latitude', $team->latitude) }}
-			</p>
-			<p>
-				{{ Form::label('longitude', 'Longitude') }}
-				{{ Form::text_span6('longitude', $team->longitude) }}
 			</p>
 			<p>
 				{{ Form::label('crest', 'Crest') }}
@@ -41,4 +30,5 @@
 			{{ Form::close() }}
 		</div>
 	</div>
+</div>
 @endsection

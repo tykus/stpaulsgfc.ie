@@ -2,7 +2,6 @@
 
 @section('content')
 	<div class="row">
-
 		<!-- Next Fixture Panel -->		
 		<div class="span5">
 			<div class="well panel">

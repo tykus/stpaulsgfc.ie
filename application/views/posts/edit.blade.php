@@ -1,6 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
+<div class="row">
 	<div class="span12">
 	
 		<!-- Display any errors from partial -->
@@ -34,4 +35,5 @@
 			{{ Form::close() }}
 		</div>
 	</div>
+</div>
 @endsection

@@ -1,6 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
+<div class="row">
 	<div class="span8 offset2">
 		<h3>Fixtures</h3>
 		
@@ -25,4 +26,5 @@
 			</tbody>
 		</table>
 	</div>
+</div>
 @endsection

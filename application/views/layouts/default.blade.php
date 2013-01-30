@@ -77,7 +77,7 @@
 		                    <li><a href="#">Gallery</a></li>
 		                    <li class="divider"></li>
 		                    <li class="nav-header">Club Information</li>
-		                    <li>{{ HTML::link_to_route('committee','Committee') }}</li>	
+		                    <li>{{ HTML::link_to_route('committee_list','Committee') }}</li>	
 		                  @else
 		                  	<div class="span3">
 				            	{{ Form::open('login') }}

@@ -50,8 +50,7 @@ class Fixtures_Controller extends Base_Controller {
 	{
 		// Options for the select controls
 		$competitions = array('' => 'Choose a competition') + Competition::lists('name', 'id');							
-		$venues = array('' => 'Choose a venue') + Venue::lists('address', 'id');						
-		$opponents = array('' => 'Choose a opponent') + Team::lists('name', 'id');
+		$venues = array('' => 'Choose a venue') + Venue::lists('address', 'id');
 		
 		return View::make('fixtures.edit')
 			->with('page_title', 'Edit Fixture')

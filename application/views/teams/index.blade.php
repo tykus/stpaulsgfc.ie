@@ -1,6 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
+<div class="row">
 	<div class="span12">
 		{{ HTML::link('teams/new', 'New Team', array('class' => 'btn btn-large btn-primary pull-right')) }}
 		<table class='table table striped'>
@@ -51,4 +52,5 @@
 		</table>		
 		{{ $teams->links() }}	
 	</div>
+</div>
 @endsection

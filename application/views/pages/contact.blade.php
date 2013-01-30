@@ -1,6 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
+<div class="row">
 	<div class="span6">
 		<h3>Contact Form</h3>
 		{{ Form::vertical_open('#') }}
@@ -27,4 +28,5 @@
 		</div>
 
 	</div>
+</div>
 @endsection

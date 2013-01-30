@@ -1,7 +1,8 @@
 @layout('layouts.default')
 
 @section('content')
-	<div class="span12">
+<div class="row">
+	<div class="span6 offset3">
 		
 		<!-- Display any errors from partial -->
 		{{ render('common.committee_errors') }}
@@ -12,19 +13,19 @@
 			{{ Form::token() }}
 			<p>
 				{{ Form::label('name', 'Name') }}
-				{{ Form::text('name', Input::old('name')) }}
+				{{ Form::text_span5('name', Input::old('name')) }}
 			</p>
 			<p>
 				{{ Form::label('role', 'Role') }}
-				{{ Form::text('role', Input::old('role')) }}
+				{{ Form::text_span5('role', Input::old('role')) }}
 			</p>
 			<p>
 				{{ Form::label('telephone', 'Telephone') }}
-				{{ Form::text('telephone', Input::old('telephone')) }}
+				{{ Form::text_span5('telephone', Input::old('telephone')) }}
 			</p>
 			<p>
 				{{ Form::label('email', 'Email') }}
-				{{ Form::text('email', Input::old('email')) }}
+				{{ Form::text_span5('email', Input::old('email')) }}
 			</p>
 			<p>
 				{{ Form::submit('Add Committee Member', array('class' => 'btn btn-primary')) }}
@@ -32,4 +33,5 @@
 			{{ Form::close() }}
 		</div>
 	</div>
+</div>
 @endsection

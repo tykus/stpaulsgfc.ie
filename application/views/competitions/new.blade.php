@@ -1,6 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
+<div class="row">
 	<div class="span6 offset3">
 		<div class="well">
 			{{ Form::open('competitions/create', 'POST') }}
@@ -20,5 +21,5 @@
 			{{ Form::close() }}	
 		</div>			
 	</div>
-
+</div>
 @endsection

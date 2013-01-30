@@ -1,6 +1,7 @@
 @layout('layouts.default')
 
 @section('content')
+<div class="row">
 	<div class="span8 offset2">
 		<table class="table table striped">
 			<thead>
@@ -29,4 +30,5 @@
 			</tbody>		
 		</table>
 	</div>
+</div>
 @endsection

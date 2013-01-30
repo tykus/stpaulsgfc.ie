@@ -55,7 +55,8 @@ Route::delete('posts/delete', array('before' => 'auth|csrf', 'uses' => 'posts@de
 /* ================================================================================================
  *   COMMITTEE PAGES
  * ================================================================================================ */
-Route::get('committee', array('before' => 'auth', 'as' => 'committee', 'uses' => 'committees@index'));
+Route::get('committee', array('as' => 'committee', 'uses' => 'committees@index'));
+Route::get('committees/list', array('before' => 'auth', 'as' => 'committee_list', 'uses' => 'committees@list'));
 Route::get('committees/new', array('before' => 'auth', 'as' => 'new_committee', 'uses' => 'committees@new'));
 Route::post('committees/create', array('before' => 'auth|csrf', 'uses' => 'committees@create'));
 Route::get('committees/(:any)/edit', array('before' => 'auth', 'as' => 'edit_committee', 'uses' => 'committees@edit'));
@@ -85,6 +86,17 @@ Route::post('competitions/create', array('before' => 'csrf', 'uses' => 'competit
 Route::get('competitions/(:any)/edit', array('before' => 'auth', 'as' => 'edit_competition', 'uses' => 'competitions@edit'));
 Route::put('competitions/update', array('before' => 'csrf', 'uses' => 'competitions@update'));
 Route::delete('competitions/delete', array('before' => 'csrf', 'uses' => 'competitions@destroy'));
+
+
+/* ================================================================================================
+ *   VENUE PAGES
+ * ================================================================================================ */
+Route::get('venues', array('before' => 'auth', 'as'=>'venues', 'uses'=>'venues@index'));
+Route::get('venues/new', array('before' => 'auth', 'as' => 'new_venue', 'uses' => 'venues@new'));
+Route::post('venues/create', array('before' => 'csrf', 'uses' => 'venues@create'));
+Route::get('venues/(:any)/edit', array('before' => 'auth', 'as' => 'edit_venue', 'uses' => 'venues@edit'));
+Route::put('venues/update', array('before' => 'csrf', 'uses' => 'venues@update'));
+Route::delete('venues/delete', array('before' => 'csrf', 'uses' => 'venues@destroy'));
 
 
 /* ================================================================================================

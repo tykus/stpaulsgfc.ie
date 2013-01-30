@@ -1,7 +1,6 @@
 @layout('layouts.default')
 
 @section('content')
-
 <div class="row">
 	<div class="span12">
 		<h3>{{ $history->heading }}</h3>

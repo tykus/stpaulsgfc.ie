@@ -15,14 +15,17 @@
 		public static function paged_posts($per_page)
 		{
 			
-			return Post::with('user')->where('publish', '=', true)->order_by('created_at', 'desc')->paginate($per_page);
+			return Post::with('user')
+					->where('publish', '=', true)
+					->where('expires', '>', date('Y-m-d'))
+					->order_by('created_at', 'desc')
+					->paginate($per_page);
 		}
 		
 		// Validation Rules
 		public static $rules = array(
 			'title' => 'required|min:2',
-			'content' => 'required',
-			'expires' => 'required'
+			'content' => 'required'
 		);
 		
 		// Data validation method
