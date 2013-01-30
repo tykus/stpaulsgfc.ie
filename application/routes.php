@@ -12,14 +12,17 @@ Route::get('/', 'pages@home');
 Route::post('login', function() {
     // get POST data
     $credentials = array(
-		'username' => Input::get('username'),
+		'username' => Input::get('email'),
 		'password' => Input::get('password')
 	);
 	if(Auth::attempt($credentials))
     {
-        // we are now logged in, go to home
-        return Redirect::to('home');
+        return Redirect::to('home')->with('flash', 'Welcome back, ' . Auth::user()->name . '!');
+    } else {
+        return Redirect::to('home')->with('error', 'There was a problem with your login attempt');
     }
+	
+	
 });
 Route::get('logout', function() {
     Auth::logout();
@@ -88,7 +91,7 @@ Route::delete('competitions/delete', array('before' => 'csrf', 'uses' => 'compet
  *   FIXTURES PAGES
  * ================================================================================================ */
 // Protected routes
-Route::get('fixtures', array('before' => 'auth', 'as'=>'fixtures', 'uses'=>'fixtures@index'));
+Route::get('fixture_list', array('before' => 'auth', 'as'=>'fixture_list', 'uses'=>'fixtures@index'));
 Route::get('fixtures/(:any)', array('as'=>'show_fixture', 'uses'=>'fixtures@show'));
 Route::get('fixtures/new', array('before' => 'auth', 'as' => 'new_fixture', 'uses' => 'fixtures@new'));
 Route::post('fixtures/create', array('before' => 'auth|csrf', 'uses' => 'fixtures@create'));
@@ -96,8 +99,8 @@ Route::get('fixtures/(:any)/edit', array('before' => 'auth', 'as' => 'edit_fixtu
 Route::put('fixtures/update', array('before' => 'auth|csrf', 'uses' => 'fixtures@update'));
 Route::delete('fixtures/delete', array('before' => 'auth|csrf', 'uses' => 'fixtures@destroy'));
 // Public routes
-Route::get('fixtures', array('as'=>'fixtures', 'uses'=>'fixtures@index'));
 Route::get('results', array('as'=>'results', 'uses' => 'fixtures@results'));
+Route::get('fixtures', array('as'=>'fixtures', 'uses' => 'fixtures@fixtures'));
 
 
 

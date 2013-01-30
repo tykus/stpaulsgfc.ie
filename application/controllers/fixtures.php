@@ -6,13 +6,25 @@ class Fixtures_Controller extends Base_Controller {
 
 		
 	/* ====================================================
-	 * INDEX ACTION - unplayed matches
+	 * INDEX ACTION - admin view
 	 * ==================================================== */
 	public function get_index()
 	{
 		return View::make('fixtures.index')
 			->with('page_title', 'Fixtures')
-			->with('fixtures', Fixture::where_null('our_goals')
+			->with('fixtures', Fixture::order_by('datetime', 'desc')
+									->get());
+	}
+
+
+	/* ====================================================
+	 * FIXTURES ACTION - unplayed matches
+	 * ==================================================== */
+	public function get_fixtures()
+	{
+		return View::make('fixtures.fixtures')
+			->with('page_title', 'Fixtures')
+			->with('fixtures', Fixture::where_null('our_points')
 									->order_by('datetime', 'desc')
 									->get());
 	}
@@ -23,9 +35,9 @@ class Fixtures_Controller extends Base_Controller {
 	 * ==================================================== */
 	public function get_results()
 	{
-		return View::make('fixtures.index')
+		return View::make('fixtures.results')
 			->with('page_title', 'Match Results')
-			->with('fixtures', Fixture::where_not_null('our_goals')
+			->with('fixtures', Fixture::where_not_null('our_points')
 									->order_by('datetime', 'desc')
 									->get());
 	}
@@ -71,7 +83,7 @@ class Fixtures_Controller extends Base_Controller {
 				'datetime' => Input::get('datetime'),
 			));
 			
-			return Redirect::to_route('fixtures')->with('flash', 'Fixture updated successfully');
+			return Redirect::to_route('fixture_list')->with('flash', 'Fixture updated successfully');
 		}
 	}
 
@@ -116,8 +128,7 @@ class Fixtures_Controller extends Base_Controller {
 				'datetime' => Input::get('datetime'),
 			));
 			
-			return Redirect::to_route('fixtures')
-				->with('flash', 'New fixture created successfully.');
+			return Redirect::to_route('fixture_list')->with('flash', 'New fixture created successfully.');
 		}	 
 	 
 	 }
@@ -131,6 +142,6 @@ class Fixtures_Controller extends Base_Controller {
 	 public function delete_destroy() 
 	 {
 			Fixture::find(Input::get('id'))->delete();
-			return Redirect::to_route('fixtures')->with('flash', 'Fixture was deleted successfully');
+			return Redirect::to_route('fixture_list')->with('flash', 'Fixture was deleted successfully');
 	 }
 }

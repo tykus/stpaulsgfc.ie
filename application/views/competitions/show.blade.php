@@ -10,9 +10,7 @@
 				<tr>
 					<td rowspan="2">{{ HTML::image('img/crests/stpauls.png') }}</td>
 					<td>St. Paul's GFC</td>
-					<td>{{ $fixture->result['our_score'] }}</td>
-					<td>vs.</td>
-					<td>{{ $fixture->result['opp_score'] }}</td>
+
 					<td class="right">{{ $fixture->team->name }}</td>
 					<td rowspan="2">{{ HTML::image('img/crests/'.$fixture->team->crest) }}</td>
 				</tr>

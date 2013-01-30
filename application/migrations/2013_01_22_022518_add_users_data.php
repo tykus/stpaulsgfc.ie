@@ -11,8 +11,10 @@ class Add_Users_Data {
 	{
 		// Add a user to the users table
 		DB::table('users')->insert(array(
-			'username' => 'brian@tykus.ie',
+			'email' => 'brian@tykus.ie',
 			'password' => Hash::make('g1ven2fly'),
+			'name' => 'Brian',
+			'surname' => 'O\'Sullivan',
 			'created_at' => date('Y-m-d H:i:s'),
 			'updated_at' => date('Y-m-d H:i:s')
 		));

@@ -59,43 +59,42 @@
 			          <li class="divider-vertical"></li>
 			          <li class="dropdown">
 			          	@if (Auth::user())
-			          		<a class="dropdown-toggle" href="#" data-toggle="dropdown">{{ Auth::user()->username }} <strong class="caret"></strong></a>
-			          		<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-			          			<ul>
-			          				<li>{{ HTML::link('logout', 'Logout') }}</li>
-				                    <li class="nav-header">Matches</li>
-				                    <li>{{ HTML::link_to_route('fixtures','Fixtures') }}</li>
-				                    <li>{{ HTML::link_to_route('competitions','Competitions') }}</li>
-				                    <li>{{ HTML::link_to_route('teams','Teams') }}</li>
-				                    <li class="divider"></li>
-				                    <li class="nav-header">News &amp; Media</li>
-				                    <li><a href="#">Posts</a></li>
-				                    <li><a href="#">Gallery</a></li>
-			          			</ul>
-			          			
-			          		</div>
+			          		{{ HTML::link('#', 'Logged in ' . Auth::user()->name, array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown')) }}
 			          	@else
-				            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
-				            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-			            	{{ Form::open('login') }}
-							    <!-- check for login errors flash var -->
-							    @if (Session::has('login_errors'))
-							        <span class="error">Username or password incorrect.</span>
-							    @endif
-							    <!-- username field -->
-							    <p>{{ Form::label('username', 'Username') }}</p>
-							    <p>{{ Form::text('username') }}</p>
-							    <!-- password field -->
-							    <p>{{ Form::label('password', 'Password') }}</p>
-							    <p>{{ Form::password('password') }}</p>
-							    <!-- submit button -->
-							    <p>{{ Form::submit('Login', array('class'=>'btn btn-primary')) }}</p>
-							{{ Form::close() }}
-			            	</div>
-			            @endif
-			          </li>
-			        </ul>
-		            
+			          		{{ HTML::link('#', 'Sign In', array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown')) }}
+			          	@endif	
+
+					    <ul class="dropdown-menu">
+					      @if (Auth::user())
+					      	<li>{{ HTML::link('logout', 'Logout') }}</li>
+		                    <li class="nav-header">Matches</li>
+		                    <li>{{ HTML::link_to_route('fixture_list','Fixtures') }}</li>
+		                    <li>{{ HTML::link_to_route('competitions','Competitions') }}</li>
+		                    <li>{{ HTML::link_to_route('teams','Teams') }}</li>
+		                    <li class="divider"></li>
+		                    <li class="nav-header">News &amp; Media</li>
+		                    <li>{{ HTML::link_to_route('posts','Posts') }}</li>
+		                    <li><a href="#">Gallery</a></li>
+		                    <li class="divider"></li>
+		                    <li class="nav-header">Club Information</li>
+		                    <li>{{ HTML::link_to_route('committee','Committee') }}</li>	
+		                  @else
+		                  	<div class="span3">
+				            	{{ Form::open('login') }}
+								    <!-- username field -->
+								    <p>{{ Form::label('email', 'Email') }}</p>
+								    <p>{{ Form::text('email') }}</p>
+								    <!-- password field -->
+								    <p>{{ Form::label('password', 'Password') }}</p>
+								    <p>{{ Form::password('password') }}</p>
+								    <!-- submit button -->
+								    <p>{{ Form::submit('Login', array('class'=>'btn btn-primary')) }}</p>
+								{{ Form::close() }}
+							</div>
+		                  @endif				      
+					    </ul>
+					  </li>		
+					</ul>
 		          </div>
 		        </div>
 		      </div>
@@ -105,6 +104,8 @@
 			  <div class="container">
 			    <h1>St. Paul&apos;s GFC</h1>
 			    <p>Clonee, Co. Meath</p>
+			    <a href="http://www.facebook.com/stpaulsgfc.clonee" class="pull-right" title="Find us on Facebook">{{ HTML::image('img/facebook.png') }}</a>
+				<a href="http://www.twitter.com/StPaulsGFC" class="pull-right" title="Follow us on Twitter">{{ HTML::image('img/twitter.png') }}</a>					
 			  </div>
 			</div>
 			
@@ -118,12 +119,15 @@
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
 				<p>{{ Session::get('flash') }}</p>
 			</div>
+			@elseif (Session::has('error'))
+			<div class="alert alert-error">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<p>{{ Session::get('error') }}</p>
+			</div>
 			@endif
 			
 			<!-- Display the page content -->
-			<div class="row">
-				@yield('content')
-			</div>	
+			@yield('content')
 		</div>
 
       	<div id="push"></div>

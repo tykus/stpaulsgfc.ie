@@ -2,6 +2,7 @@
 
 @section('content')
 	<div class="span12">
+		{{ HTML::link('fixtures/new', 'New Fixture', array('class' => 'btn btn-large btn-primary pull-right')) }}
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -18,14 +19,21 @@
 					<td>{{ MyHelpers::irish_date($fixture->datetime, 'long') }}</td>
 					<td>{{ $fixture->competition->name }} ({{ $fixture->competition->year }})</td>
 					<td>{{ $fixture->team->name }}</td>
-					<td>{{ $fixture->venue->name . " " . $fixture->venue->address }}</td>
 					<td>
-						{{ HTML::link_to_route('edit_fixture', 'Edit', array($fixture->id), array('class' => 'btn')) }}
-						{{ Form::open('fixtures/delete', 'DELETE', array('style'=>'display:inline;')) }}
-						{{ Form::hidden('id', $fixture->id) }}
-						{{ Form::token() }} 
-						{{ Form::submit('Delete', array('class'=>'btn btn-danger', 'data-confirm' => 'Are you sure?')) }}
-						{{ Form::close() }}						
+						@if (isset($fixture->venue_id))
+							{{ $fixture->venue->name . ' ' . $fixture->venue->address }}
+						@else
+							<i>to be confirmed</i>
+						@endif
+					<td>
+						<div class="btn-group btn-group-vertical">
+							{{ HTML::link_to_route('edit_fixture', 'Edit', array($fixture->id), array('class' => 'btn')) }}
+							{{ Form::open('fixtures/delete', 'DELETE', array('style'=>'display:inline;')) }}
+							{{ Form::hidden('id', $fixture->id) }}
+							{{ Form::token() }} 
+							{{ Form::submit('Delete', array('class'=>'btn btn-danger', 'data-confirm' => 'Are you sure?')) }}
+							{{ Form::close() }}		
+						</div>				
 					</td>
 				</tr>
 				@endforeach

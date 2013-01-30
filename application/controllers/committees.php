@@ -4,20 +4,34 @@
 	{
 		
 		public $restful = true;
-		
+
+
+		/* ====================================================
+		 * INDEX ACTION
+		 * ==================================================== */
 		public function get_index()
 		{
 			return View::make('committees.index')
 				->with('page_title', 'Committee Members')
 				->with('members', Committee::all());
 		}
-		
+
+
+
+		/* ====================================================
+		 * NEW ACTION
+		 * ==================================================== */	
 		public function get_new()
 		{
 			return View::make('committees.new')
 				->with('page_title', 'New Committee Member');
 		}		
-		
+
+
+
+		/* ====================================================
+		 * CREATE ACTION
+		 * ==================================================== */		
 		public function post_create()
 		{
 			// Validate the form data against the rules in the model	
@@ -43,7 +57,11 @@
 		
 		}
 		
-		
+
+
+		/* ====================================================
+		 * EDIT ACTION
+		 * ==================================================== */			
 		public function get_edit($id)
 		{
 			return View::make('committees.edit')
@@ -52,6 +70,11 @@
 				->with('member', Committee::find($id));
 		}
 
+
+
+		/* ====================================================
+		 * UPDATE ACTION
+		 * ==================================================== */	
 		public function put_update()
 		{
 			$id = Input::get('id');
@@ -73,7 +96,11 @@
 				return Redirect::to_route('committee')->with('flash', 'Committee Member updated successfully');
 			}
 		}
-		
+
+
+		/* ====================================================
+		 * DELETE ACTION
+		 * ==================================================== */	
 		public function delete_destroy()
 		{
 			Committee::find(Input::get('id'))->delete();
