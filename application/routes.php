@@ -98,6 +98,12 @@ Route::get('venues/(:any)/edit', array('before' => 'auth', 'as' => 'edit_venue',
 Route::put('venues/update', array('before' => 'csrf', 'uses' => 'venues@update'));
 Route::delete('venues/delete', array('before' => 'csrf', 'uses' => 'venues@destroy'));
 
+/* ================================================================================================
+ *   USER PAGES
+ * ================================================================================================ */
+Route::get('users/(:any)/edit', array('before' => 'auth', 'as' => 'edit_user', 'uses' => 'users@edit'));
+Route::put('users/update', array('before' => 'csrf', 'uses' => 'users@update'));
+
 
 /* ================================================================================================
  *   FIXTURES PAGES

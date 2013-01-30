@@ -19,7 +19,7 @@
 					<td colspan="5">
 						<i>{{ e($fixture->comment) }} &laquo; 
 						{{ date("d.m.Y @ g:i a", strtotime(e($fixture->datetime))) }} &laquo;  
-						{{ Team::find($fixture->venue_id)->venue }}</i>
+						{{ $fixture->venue->name }}</i>
 					</td>
 				</tr>
 			@endforeach

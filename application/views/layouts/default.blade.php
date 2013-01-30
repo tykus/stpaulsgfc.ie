@@ -67,6 +67,7 @@
 					    <ul class="dropdown-menu">
 					      @if (Auth::user())
 					      	<li>{{ HTML::link('logout', 'Logout') }}</li>
+					      	<li>{{ HTML::link_to_route('edit_user', 'Change Password', Auth::user()->id) }}</li>
 		                    <li class="nav-header">Matches</li>
 		                    <li>{{ HTML::link_to_route('fixture_list','Fixtures') }}</li>
 		                    <li>{{ HTML::link_to_route('competitions','Competitions') }}</li>
