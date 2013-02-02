@@ -17,9 +17,17 @@
 				</tr>
 				<tr>
 					<td colspan="5">
-						<i>{{ e($fixture->comment) }} &laquo; 
-						{{ date("d.m.Y @ g:i a", strtotime(e($fixture->datetime))) }} &laquo;  
-						{{ $fixture->venue->name }}</i>
+						<i>
+							{{ e($fixture->comment) }} 
+							&laquo; 
+							{{ MyHelpers::irish_date($fixture->date) }} 
+							{{ e($fixture->time) }}
+							&raquo;  
+							@if (isset($fixture->venue->name))
+								{{ $fixture->venue->name }},
+							@endif
+							{{ $fixture->venue->address }}
+						</i>
 					</td>
 				</tr>
 			@endforeach

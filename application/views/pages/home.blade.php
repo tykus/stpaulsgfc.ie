@@ -16,7 +16,8 @@
 						<small class="muted">
 							{{ $next_fixture->competition->name }}<br />
 							{{ $next_fixture->venue->address }}<br />
-							{{ MyHelpers::irish_date($next_fixture->datetime) }}
+							{{ MyHelpers::irish_date($next_fixture->date) }}
+							{{ $next_fixture->time }}
 						</small>
 					</div>
 				@else
@@ -43,7 +44,8 @@
 						<small class="muted">
 							{{ $prev_fixture->competition->name }}<br />
 							{{ $prev_fixture->venue->address }}<br />
-							{{ MyHelpers::irish_date($prev_fixture->datetime) }}
+							{{ MyHelpers::irish_date($next_fixture->date) }}
+							{{ $prev_fixture->time }}
 						</small>	
 					</div>
 				@endif

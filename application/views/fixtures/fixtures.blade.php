@@ -17,7 +17,7 @@
 				<tr>
 					<td>{{ HTML::image('img/crests/'.$fixture->team->crest) }}</td>
 					<td>{{ $fixture->team->name }}</td>
-					<td>{{ MyHelpers::irish_date($fixture->datetime, 'long') }}</td>
+					<td>{{ MyHelpers::irish_date($fixture->date) }}</td>
 					<td>
 						@if (isset($fixture->venue_id))
 							{{ HTML::link('https://maps.google.ie/maps?q=' . $fixture->venue->latitude . ',' . $fixture->venue->longitude . '&hl=en&sll=' . $fixture->venue->latitude . ',' . $fixture->venue->longitude . '&sspn=1.417561,4.22699&t=m&z=14', $fixture->venue->address, array('target'=>'blank')) }}

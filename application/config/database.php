@@ -70,7 +70,7 @@ return array(
 		'mysql' => array(
 			'driver'   => 'mysql',
 			'host'     => '127.0.0.1',
-			'database' => 'stpaulsgfc',
+			'database' => 'stpaulsg',
 			'username' => 'root',
 			'password' => 'g1ven2fly',
 			'charset'  => 'utf8',

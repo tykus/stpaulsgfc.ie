@@ -25,8 +25,8 @@ class Fixture extends Eloquent {
 		// ---------------- 
 		public static $rules = array(
 			//'name' => 'required|min:2|unique:teams,name'
-			'team_id' => 'required',
-			'competition_id' => 'required'
+			'team_id' => 'required|integer',
+			'competition_id' => 'required|integer'
 		);
 		
 		/* validate($data))
@@ -79,13 +79,13 @@ class Fixture extends Eloquent {
 		
 		public static function next()
 		{
-			return Fixture::where('datetime', '>=', date('Y-m-d'))->order_by('datetime')->first();
+			return Fixture::where('date', '>=', date('Y-m-d'))->order_by('date')->first();
 		}
 		
 		
 		public static function prev()
 		{
-			return Fixture::where('datetime', '<=', date('Y-m-d'))->order_by('datetime', 'desc')->first();
+			return Fixture::where('date', '<=', date('Y-m-d'))->order_by('date', 'desc')->first();
 		}
 
 

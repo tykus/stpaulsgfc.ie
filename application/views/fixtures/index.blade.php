@@ -17,7 +17,7 @@
 			<tbody>
 				@foreach($fixtures as $fixture)
 				<tr>
-					<td>{{ MyHelpers::irish_date($fixture->datetime, 'long') }}</td>
+					<td>{{ MyHelpers::irish_date($fixture->date) }}</td>
 					<td>{{ $fixture->competition->name }} ({{ $fixture->competition->year }})</td>
 					<td>{{ $fixture->team->name }}</td>
 					<td>

@@ -49,7 +49,7 @@
 			
 				<div class="span6 offset1">
 					<small class="muted">
-						<i>{{ MyHelpers::irish_date($fixture->datetime, 'long') }}</i> | 
+						<i>{{ MyHelpers::irish_date($fixture->date) }}</i> | 
 						<b>{{ $fixture->venue->name . " " . $fixture->venue->address }}</b> | 
 						<i>{{ $fixture->competition->name }}</i>
 					</small>

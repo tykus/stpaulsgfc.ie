@@ -3,6 +3,7 @@
 @section('content')
 <div class="row">
 	<div class="span8 offset2">
+		{{ HTML::link('competitions/new', 'New Competition', array('class' => 'btn btn-large btn-primary pull-right')) }}
 		<table class="table table striped">
 			<thead>
 				<tr>

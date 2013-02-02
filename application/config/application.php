@@ -171,7 +171,7 @@ return array(
 		'Form'       	=> 'Laravel\\Form',
 		'Hash'       	=> 'Laravel\\Hash',
 		'HTML'       	=> 'Laravel\\HTML',
-		'Input'      	=> 'Laravel\\Input',
+		//'Input'      	=> 'Laravel\\Input', # removed to override in the libraries directory for NULL handling
 		'IoC'        	=> 'Laravel\\IoC',
 		'Lang'       	=> 'Laravel\\Lang',
 		'Log'        	=> 'Laravel\\Log',

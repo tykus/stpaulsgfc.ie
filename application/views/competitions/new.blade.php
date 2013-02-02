@@ -3,6 +3,11 @@
 @section('content')
 <div class="row">
 	<div class="span6 offset3">
+
+
+		<!-- Display any errors from partial -->
+		{{ render('common.competitions_errors') }}
+
 		<div class="well">
 			{{ Form::open('competitions/create', 'POST') }}
 			{{ Form::token() }}

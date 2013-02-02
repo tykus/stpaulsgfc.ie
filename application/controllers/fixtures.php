@@ -12,8 +12,8 @@ class Fixtures_Controller extends Base_Controller {
 	{
 		return View::make('fixtures.index')
 			->with('page_title', 'Fixtures')
-			->with('fixtures', Fixture::order_by('datetime', 'desc')
-									->get());
+			->with('fixtures', Fixture::order_by('date', 'desc')
+								->get());
 	}
 
 
@@ -25,8 +25,8 @@ class Fixtures_Controller extends Base_Controller {
 		return View::make('fixtures.fixtures')
 			->with('page_title', 'Fixtures')
 			->with('fixtures', Fixture::where_null('our_points')
-									->order_by('datetime', 'desc')
-									->get());
+								->order_by('date')
+								->get());
 	}
 	
 	
@@ -38,7 +38,7 @@ class Fixtures_Controller extends Base_Controller {
 		return View::make('fixtures.results')
 			->with('page_title', 'Match Results')
 			->with('fixtures', Fixture::where_not_null('our_points')
-									->order_by('datetime', 'desc')
+									->order_by('date', 'desc')
 									->get());
 	}
 
@@ -49,9 +49,14 @@ class Fixtures_Controller extends Base_Controller {
 	public function get_edit($id)
 	{
 		// Options for the select controls
-		$competitions = array('' => 'Choose a competition') + Competition::lists('name', 'id');							
-		$venues = array('' => 'Choose a venue') + Venue::lists('address', 'id');
-		
+		$competitions = Competition::order_by('year', 'desc')
+							->order_by('name')
+							->get();
+		$venues = Venue::order_by('address')
+					->get();					
+		$opponents = Team::where('id', '!=', 1)
+						->order_by('name')->get();
+
 		return View::make('fixtures.edit')
 			->with('page_title', 'Edit Fixture')
 			->with('venues', $venues)
@@ -79,7 +84,12 @@ class Fixtures_Controller extends Base_Controller {
 				'competition_id' => Input::get('competition_id'),
 				'team_id' => Input::get('team_id'),
 				'venue_id' => Input::get('venue_id'),
-				'datetime' => Input::get('datetime'),
+				'date' => Input::get('date'),
+				'time' => Input::get('time'),
+				'our_goals' => Input::get('our_goals'),
+				'our_points' => Input::get('our_points'),
+				'opp_goals' => Input::get('opp_goals'),
+				'opp_points' => Input::get('opp_points'),
 			));
 			
 			return Redirect::to_route('fixture_list')->with('flash', 'Fixture updated successfully');
@@ -92,9 +102,14 @@ class Fixtures_Controller extends Base_Controller {
 	 * ==================================================== */	
 	 public function get_new()
 	 {
-		$competitions = array('' => 'Choose a competition') + Competition::lists('name', 'id');							
-		$venues = array('' => 'Choose a venue') + Venue::lists('address', 'id');						
-		$opponents = array('' => 'Choose a opponent') + Team::lists('name', 'id');
+		// Options for the select controls
+		$competitions = Competition::order_by('year', 'desc')
+							->order_by('name')
+							->get();
+		$venues = Venue::order_by('address')
+					->get();					
+		$opponents = Team::where('id', '!=', 1)
+						->order_by('name')->get();
 		
 		
 	 	return View::make('fixtures.new')
@@ -124,7 +139,8 @@ class Fixtures_Controller extends Base_Controller {
 				'competition_id' => Input::get('competition_id'),
 				'team_id' => Input::get('team_id'),
 				'venue_id' => Input::get('venue_id'),
-				'datetime' => Input::get('datetime'),
+				'date' => Input::get('date'),
+				'time' => Input::get('time'),
 			));
 			
 			return Redirect::to_route('fixture_list')->with('flash', 'New fixture created successfully.');

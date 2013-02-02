@@ -49,14 +49,9 @@ class MyHelpers {
 	 * =================
 	 * Returns a string with date formatted
 	 */
-	 public static function irish_date($date, $format='short')
+	 public static function irish_date($date)
 	 {
-	 	if ($format == 'long')
-		{	
-	 		return date("d/m/Y @ g:i a", strtotime(e($date)));
-	 	} else {
 	 		return date("d/m/Y", strtotime(e($date)));
-	 	}
 	 }
 	
 }

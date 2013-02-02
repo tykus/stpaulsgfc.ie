@@ -49,8 +49,7 @@ class Competitions_Controller extends Base_Controller {
 		
 		return View::make('competitions.new')
 			->with('page_title', 'Add New Competition')
-			->with('years', $years)
-			->with('competitions', $competitions);
+			->with('years', $years);
 	}
 
 

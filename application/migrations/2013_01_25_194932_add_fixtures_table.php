@@ -15,7 +15,8 @@ class Add_Fixtures_Table {
 			$table->integer('competition_id');
 			$table->integer('team_id');
 			$table->integer('venue_id')->nullable();
-			$table->date('datetime')->nullable();
+			$table->date('date')->nullable();
+			$table->string('time')->nullable();
 			$table->string('comment')->nullable();
 			$table->integer('our_goals')->nullable();
 			$table->integer('our_points')->nullable();
