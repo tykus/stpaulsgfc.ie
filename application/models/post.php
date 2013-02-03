@@ -17,7 +17,6 @@
 			
 			return Post::with('user')
 					->where('publish', '=', true)
-					->where('expires', '>', date('Y-m-d'))
 					->order_by('created_at', 'desc')
 					->paginate($per_page);
 		}

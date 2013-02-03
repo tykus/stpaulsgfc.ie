@@ -20,10 +20,6 @@
 				{{ Form::textarea_span6('content', $post->content) }}
 			</p>
 			<p>
-				{{ Form::label('expires', 'Expires') }}
-				{{ Form::text_span6('expires', $post->expires) }}
-			</p>
-			<p>
 				{{ Form::checkbox( 'publish', 1, $post->publish, array('class'=>'checkbox') ) }}
 				{{ Form::label('publish', 'Publish', array('class'=>'checkbox')) }}
 			</p>

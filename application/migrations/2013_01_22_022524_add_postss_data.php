@@ -20,7 +20,6 @@ class Add_Postss_Data {
 							St Paul\'s playing personnel has already been boosted by several transfers into the club this year including 1996 All-Ireland winning goalkeeper Conor Martin as well as his understudy that year, Ronan Finnegan from Kilmainhamwood.
 							1992 All-Ireland minor medalist Paul Nestor has transferred from Blackhall Gaels.',
 			'user_id' => 1,
-			'expires' => "2014-01-31 00:00:00",
 			'publish' => true,
 			'created_at' => date('Y-m-d m:i:s'),
 			'updated_at' => date('Y-m-d H:i:s')
@@ -34,7 +33,6 @@ class Add_Postss_Data {
 							Interestingly, Ronan Finnegan - who was Meath\'s substitute goalkeeper in 1996 - is also transferring to the Clonee outfit from Kilmainhamwood.
 							Finnegan was between the posts when the \'Wood claimed the Keegan Cup in 1996.',
 			'user_id' => 1,
-			'expires' => "2014-01-31 00:00:00",
 			'publish' => true,
 			'created_at' => date('Y-m-d H:i:s'),
 			'updated_at' => date('Y-m-d H:i:s')

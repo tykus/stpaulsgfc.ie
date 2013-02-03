@@ -56,7 +56,6 @@
 					'content' => Input::get('content'),
 					'user_id' => Input::get('user_id'),
 					'publish' => Input::get('publish'),
-					'expires' => Input::get('expires')
 				));
 				
 				return Redirect::to_route('posts')->with('flash', 'Post updated successfully');
@@ -94,7 +93,6 @@
 					'content' => Input::get('content'),
 					'user_id' => Input::get('user_id'),
 					'publish' => Input::get('publish'),
-					'expires' => Input::get('expires')
 				));
 				
 				return Redirect::to_route('posts')

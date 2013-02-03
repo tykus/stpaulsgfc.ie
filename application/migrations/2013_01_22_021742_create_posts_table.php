@@ -15,7 +15,6 @@ class Create_Posts_Table {
 			$table->integer('user_id');
 			$table->string('title');
 			$table->text('content');
-			$table->date('expires')->nullable();
 			$table->boolean('publish');
 			$table->timestamps();
 		});

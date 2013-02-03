@@ -20,10 +20,6 @@
 				{{ Form::textarea_span6('content', Input::old('content')) }}
 			</p>
 			<p>
-				{{ Form::label('expires', 'Expires') }}
-				{{ Form::text_span6('expires', Input::old('expires')) }}
-			</p>
-			<p>
 				{{ Form::checkbox( 'publish', 1, Input::old('publish'), array('class'=>'checkbox') ) }}
 				{{ Form::label('publish', 'Publish', array('class'=>'checkbox')) }}
 			</p>

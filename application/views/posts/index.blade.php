@@ -24,7 +24,7 @@
 							<i class="icon-ok"></i>
 						@endif
 					</td>
-					<td>Expires: {{ date("d.m.y", strtotime(e($post->expires))) }}<br />
+					<td>
 						Created: {{ date("d.m.y", strtotime(e($post->created_at))) }}<br />
 						Updated: {{ date("d.m.y", strtotime(e($post->updated_at))) }}</td>
 					<td>
