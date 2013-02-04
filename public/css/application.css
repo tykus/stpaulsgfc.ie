@@ -19,11 +19,6 @@ body
 	padding-top: 40px;
 }
 
-#jersey1 
-{
-  display: none;
-}
-
 .white
 {
 	background: #ffffff url('../img/bg_content.png') repeat;	
@@ -59,7 +54,7 @@ img .center {
 .page-title > h1 
 {
 	color: #ffffff;
-	background: #b80000 url('../img/bg_content.png') repeat;	
+	background: #8b0000 url('../img/bg_content.png') repeat;	
 	height: 60px;
 	line-height: 60px;
 	margin-top: -80px;
@@ -84,6 +79,7 @@ img .center {
 .footer-center 
 {
 	text-align: center;
+  line-height: 20px;
 }
 
 .footer-right
@@ -129,7 +125,7 @@ body {
     height: auto !important;
     height: 100%;
     /* Negative indent footer by it's height */
-    margin: 0 auto -120px;
+    margin: 0 auto -100px;
 }
 
 /* Set the fixed height of the footer here */

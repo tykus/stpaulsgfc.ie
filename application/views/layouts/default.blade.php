@@ -147,7 +147,8 @@
         		{{ HTML::image('img/crests/stpauls.png', 'St. Paul\'s GFC') }}	
         	</div>
         	<div class="span4 footer-center">
-        		<p class="muted">&copy; {{ date('Y') }} St. Paul's GFC</p>	
+        		<p class="muted"><br/>&copy; {{ date('Y') }} St. Paul's GFC</p>	
+        		<p class="muted">Designed by <a href="http://www.tykus.ie">Tykus</a?></p>	
         	</div>
         	<div class="span4 footer-right">
         		{{ HTML::image('img/gaa.png', 'GAA') }}	
