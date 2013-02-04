@@ -4,10 +4,12 @@
 		<title>St. Paul's GFC :: {{ $page_title }}</title>
 		{{ Asset::container('bootstrapper')->styles() }}
 		{{ HTML::style('css/application.css') }}
+		{{ HTML::style('css/lightbox.css') }}
 		{{ HTML::style('http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css') }}
 		{{ Asset::container('bootstrapper')->scripts() }}
 		{{ HTML::script('http://code.jquery.com/ui/1.10.0/jquery-ui.js') }}
 		{{ HTML::script('js/application.js') }}
+		{{ HTML::script('js/lightbox.js') }}
 		{{ HTML::script('js/timepicker.js') }}
 	</head>
 	<body>

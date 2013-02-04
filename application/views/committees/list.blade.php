@@ -22,7 +22,7 @@
 					<td>{{ HTML::email($member->email) }}</td>
 					<td>
 						{{ HTML::link_to_route('edit_committee', 'Edit', array($member->id), array('class' => 'btn')) }}
-						{{ Form::open('committee/delete', 'DELETE', array('style'=>'display:inline;')) }}
+						{{ Form::open('committees/delete', 'DELETE', array('style'=>'display:inline;')) }}
 						{{ Form::hidden('id', $member->id) }}
 						{{ Form::token() }} 
 						{{ Form::submit('Delete', array('class'=>'btn btn-danger', 'data-confirm' => 'Are you sure?')) }}
