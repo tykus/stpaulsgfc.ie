@@ -44,7 +44,7 @@ Route::get('gallery', 'pages@gallery');
  *   POSTS
  * ================================================================================================ */
 Route::get('posts', array('before' => 'auth', 'as'=>'posts', 'uses'=>'posts@index'));
-Route::get('posts/(:any)', array('before' => 'auth', 'as'=>'show_post', 'uses'=>'posts@show'));
+Route::get('posts/(:any)', array('as'=>'show_post', 'uses'=>'posts@show'));
 Route::get('posts/new', array('before' => 'auth', 'as' => 'new_post', 'uses' => 'posts@new'));
 Route::post('posts/create', array('before' => 'auth|csrf', 'uses' => 'posts@create'));
 Route::get('posts/(:any)/edit', array('before' => 'auth', 'as' => 'edit_post', 'uses' => 'posts@edit'));

@@ -66,8 +66,8 @@
 
 					<ul class="media-list">
 						<li class="media">
-						    <a class="pull-left" href="#">
-						      <img src="http://placehold.it/90x90">
+						    <a class="pull-left" href="posts/{{ $post->id }}" }}>
+						      {{ HTML::image('img/icon.jpeg', $post->title) }}
 						    </a>
 						    <div class="media-body">
 								<h4 class="media-heading">{{ e($post->title) }}</h4>
