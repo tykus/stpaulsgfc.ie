@@ -41,6 +41,7 @@
 					      <li>{{ HTML::link('committee', 'Committee') }}</li>
 					      <li>{{ HTML::link('location', 'Location') }}</li>
 					      <li>{{ HTML::link('contact', 'Contact') }}</li>
+					      <li>{{ HTML::link_to_route('code', 'Our Games, Our Code') }}</li>
 					    </ul>
 					  </li>
 			          <li class="divider-vertical"></li>
@@ -52,7 +53,6 @@
 					    <ul class="dropdown-menu">
 					      <li>{{ HTML::link_to_route('fixtures', 'Fixtures') }}</li>
 					      <li>{{ HTML::link_to_route('results', 'Results') }}</li>
-					      <li>{{ HTML::link('#', 'Tables') }}</li>
 					    </ul>
 					  </li>
 		            </ul>
@@ -147,8 +147,7 @@
         		{{ HTML::image('img/crests/stpauls.png', 'St. Paul\'s GFC') }}	
         	</div>
         	<div class="span4 footer-center">
-        		<p class="muted"><br/>&copy; {{ date('Y') }} St. Paul's GFC</p>	
-        		<p class="muted">Designed by <a href="http://www.tykus.ie">Tykus</a?></p>	
+        		<p class="muted">&copy; {{ date('Y') }} St. Paul's GFC</p>	
         	</div>
         	<div class="span4 footer-right">
         		{{ HTML::image('img/gaa.png', 'GAA') }}	

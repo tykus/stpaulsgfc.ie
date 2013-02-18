@@ -92,7 +92,9 @@
 					'title' => Input::get('title'),
 					'content' => Input::get('content'),
 					'user_id' => Input::get('user_id'),
-					'publish' => Input::get('publish'),
+					'publish' => true, 
+					# override form input which unchecked throws Integrity constraint violation: 1048 Column 'publish' cannot be null 
+					//'publish' => Input::get('publish'),
 				));
 				
 				return Redirect::to_route('posts')

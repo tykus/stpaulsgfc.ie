@@ -37,6 +37,7 @@ Route::get('home', array('as' => 'home', 'uses' => 'pages@home'));
 Route::get('history', array('as' => 'history', 'uses' =>  'pages@history'));
 Route::get('location', array('as' => 'location', 'uses' => 'pages@location'));
 Route::get('contact', array('as' => 'contact', 'uses' => 'pages@contact'));
+Route::get('code', array('as' => 'code', 'uses' => 'pages@code'));
 Route::get('gallery', 'pages@gallery');
 
 
@@ -55,8 +56,8 @@ Route::delete('posts/delete', array('before' => 'auth|csrf', 'uses' => 'posts@de
 /* ================================================================================================
  *   COMMITTEE PAGES
  * ================================================================================================ */
-Route::get('committee', array('as' => 'committee', 'uses' => 'committees@index'));
-Route::get('committees/list', array('before' => 'auth', 'as' => 'committee_list', 'uses' => 'committees@list'));
+Route::get('committee', array('as' => 'committee', 'uses' => 'committees@index')); // public view
+Route::get('committees/list', array('before' => 'auth', 'as' => 'committee_list', 'uses' => 'committees@list')); // admin view
 Route::get('committees/new', array('before' => 'auth', 'as' => 'new_committee', 'uses' => 'committees@new'));
 Route::post('committees/create', array('before' => 'auth|csrf', 'uses' => 'committees@create'));
 Route::get('committees/(:any)/edit', array('before' => 'auth', 'as' => 'edit_committee', 'uses' => 'committees@edit'));

@@ -29,8 +29,8 @@ class Fixture extends Eloquent {
 			'competition_id' => 'required|integer'
 		);
 		
-		/* validate($data))
-		 * ================
+		/* validate($data)
+		 * ===============
 		 * Validate the data passed in against the rules 
 		 */
 		public static function validate($data)
@@ -53,40 +53,52 @@ class Fixture extends Eloquent {
 			$opp_g = $this->get_attribute('opp_goals');
 			$opp_p = str_pad($this->get_attribute('opp_points'), 2, '0', STR_PAD_LEFT);
 			
-			// Determine winner
-			$our_score = $our_g * 3 + $our_p;
-			$opp_score = $opp_g * 3 + $opp_p;
-			
-			if ($our_score > $opp_score) {
-				$our_score_str = "<b>" . $our_g . "-" . $our_p . "</b>";	
-				$opp_score_str = $opp_g . "-" . $opp_p;		
-			} elseif ($our_score < $opp_score) {
-				$our_score_str = $our_g . "-" . $our_p;	
-				$opp_score_str = "<b>" . $opp_g . "-" . $opp_p . "</b>";		
-			} else {
-				$our_score_str = $our_g . "-" . $our_p;	
-				$opp_score_str = $opp_g . "-" . $opp_p;								
+			// Check if there is a score entered for the fixture
+			if (is_null($our_g) || is_null($our_p) || is_null($opp_g) || is_null($opp_p)) 
+			{
+				return array(
+					'our_score' => "<i>tbc</i>",
+					'opp_score' => ""
+				);
 			}
-			
-			
-			// Return an array with formatted strings for the scores
-			return array(
-				'our_score' => $our_score_str,
-				'opp_score' => $opp_score_str
-			);
-			
+			else
+			{
+				// Determine winner
+				$our_score = $our_g * 3 + $our_p;
+				$opp_score = $opp_g * 3 + $opp_p;
+				
+				if ($our_score > $opp_score) {
+					$our_score_str = "<b>" . $our_g . "-" . $our_p . "</b>";	
+					$opp_score_str = $opp_g . "-" . $opp_p;		
+				} elseif ($our_score < $opp_score) {
+					$our_score_str = $our_g . "-" . $our_p;	
+					$opp_score_str = "<b>" . $opp_g . "-" . $opp_p . "</b>";		
+				} else {
+					$our_score_str = $our_g . "-" . $our_p;	
+					$opp_score_str = $opp_g . "-" . $opp_p;								
+				}
+				
+				
+				// Return an array with scores as formatted strings (0-00)
+				return array(
+					'our_score' => $our_score_str,
+					'opp_score' => $opp_score_str
+				);
+			}
 		}
 		
 		public static function next()
 		{
-			return Fixture::where('date', '>=', date('Y-m-d'))->order_by('date')->first();
+			return Fixture::where('date', '>=', date('Y-m-d'))
+					->order_by('date')->first();
 		}
 		
 		
 		public static function prev()
 		{
-			return Fixture::where('date', '<=', date('Y-m-d'))->order_by('date', 'desc')->first();
+			return Fixture::where('date', '<=', date('Y-m-d'))
+					->where('time', '<=', date('H:i:s'))
+					->order_by('date', 'desc')->first();
 		}
-
 
 }

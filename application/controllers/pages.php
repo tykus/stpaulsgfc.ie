@@ -35,6 +35,12 @@
 			return View::make('pages.contact')->with('page_title', 'Contact');
 			
 		}
+
+		public function get_code()
+		{
+			return View::make('pages.code')->with('page_title', 'Our Games, Our Code');
+		}
+		
 		
 		public function get_gallery()
 		{

@@ -24,7 +24,7 @@
 				{{ Form::label('publish', 'Publish', array('class'=>'checkbox')) }}
 			</p>
 			<p>
-				{{ Form::hidden('user_id', 1) }}
+				{{ Form::hidden('user_id', Auth::user()->id) }}
 				{{ Form::submit('Add Post', array('class' => 'btn btn-primary')) }}
 			</p>
 			{{ Form::close() }}
